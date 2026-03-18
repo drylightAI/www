@@ -75,9 +75,16 @@
     padding: 2vh 2rem;
     text-align: center;
   }
+  .content-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 640px;
+  }
 
   .logo-word {
-    margin-bottom: 1.5vh;
+    margin-bottom: 4vh;
     opacity: 0;
     animation: up 0.6s 0.1s cubic-bezier(0.16,1,0.3,1) forwards;
     font-family: 'Outfit', sans-serif;
@@ -98,28 +105,29 @@
   }
 
   .etymology {
-    margin-bottom: 3vh;
+    margin-bottom: 0;
+    padding: 1vh 2rem;
     opacity: 0;
-    animation: up 0.6s 0.15s cubic-bezier(0.16,1,0.3,1) forwards;
+    animation: up 0.6s 0.7s cubic-bezier(0.16,1,0.3,1) forwards;
     text-align: center;
     line-height: 2;
     font-family: 'Cormorant Garamond', serif;
   }
   .ety-word {
     font-family: 'Outfit', sans-serif;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: var(--white);
     letter-spacing: -0.04em;
   }
   .ety-pronunciation {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     font-weight: 400;
     color: var(--grey-300);
     margin-left: 6px;
   }
   .ety-pos {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     font-style: italic;
     font-weight: 400;
     color: var(--grey-300);
@@ -127,14 +135,14 @@
   }
   .ety-def {
     display: block;
-    font-size: 0.82rem;
+    font-size: 0.9rem;
     font-weight: 400;
     color: var(--grey-100);
     margin-top: 0;
     letter-spacing: 0.01em;
   }
   .ety-latin {
-    font-size: 0.72rem;
+    font-size: 0.9rem;
     font-weight: 400;
     color: var(--grey-500);
     margin-left: 6px;
@@ -148,21 +156,23 @@
     width: 48px;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    margin-bottom: 3vh;
+    margin-bottom: 2vh;
     opacity: 0;
-    animation: up 0.6s 0.2s cubic-bezier(0.16,1,0.3,1) forwards;
+    animation: up 0.6s 0.15s cubic-bezier(0.16,1,0.3,1) forwards;
   }
 
   .typer-wrap {
     margin-bottom: 1.5vh;
     opacity: 0;
-    animation: up 0.6s 0.4s cubic-bezier(0.16,1,0.3,1) forwards;
+    animation: up 0.6s 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
     width: 100%;
     max-width: 620px;
-    min-height: 3em;
+    height: 3em;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    align-self: flex-start;
+    overflow: hidden;
   }
   .terminal-body {
     display: flex;
@@ -187,14 +197,7 @@
   }
   .typer-text { word-break: break-word; }
   .typer-cursor {
-    display: inline-block;
-    width: 7px;
-    height: 1.05em;
-    background: var(--accent);
-    margin-left: 1px;
-    vertical-align: text-bottom;
-    opacity: 0.7;
-    animation: blink 0.8s step-end infinite;
+    display: none;
   }
   @keyframes blink { 0%,100% { opacity: 0.7; } 50% { opacity: 0; } }
 
@@ -207,7 +210,7 @@
     letter-spacing: -0.02em;
     margin-bottom: 8vh;
     opacity: 0;
-    animation: up 0.6s 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
+    animation: up 0.6s 0.2s cubic-bezier(0.16,1,0.3,1) forwards;
   }
   .tagline em {
     font-style: italic;
@@ -217,7 +220,7 @@
 
   .cta-area {
     opacity: 0;
-    animation: up 0.6s 0.5s cubic-bezier(0.16,1,0.3,1) forwards;
+    animation: up 0.6s 0.4s cubic-bezier(0.16,1,0.3,1) forwards;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -304,37 +307,39 @@
 <body>
 
 <main>
-  <div class="logo-word">dry<span class="light">light</span><span class="ai"> a<span class="ai-i">i</span></span></div>
+  <div class="content-center">
+    <div class="logo-word">dry<span class="light">light</span><span class="ai"> a<span class="ai-i">i</span></span></div>
 
-  <div class="etymology">
-    <span class="ety-word">dry<span style="color:var(--accent)">light</span></span>
-    <span class="ety-pronunciation">/ˈdraɪˌlaɪt/</span>
-    <span class="ety-pos">n.</span>
-    <span class="ety-latin">[Latin <em>lumen siccum</em>]</span>
-    <span class="ety-def">pure insight, unclouded by noise or emotion.</span>
-  </div>
+    <div class="rule"></div>
 
-  <div class="rule"></div>
+    <p class="tagline">actionable intelligence<br>for the AI era.</p>
 
-  <p class="tagline">actionable intelligence<br>for the AI era.</p>
-
-  <div class="typer-wrap">
-    <div class="terminal-body">
-      <span class="terminal-prompt">&gt;</span>
-      <div class="typer">
-        <span class="typer-text" id="typer"></span><span class="typer-cursor"></span>
+    <div class="typer-wrap">
+      <div class="terminal-body">
+        <span class="terminal-prompt">&gt;</span>
+        <div class="typer">
+          <span class="typer-text" id="typer"></span><span class="typer-cursor"></span>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="cta-area">
-    <a href="https://forms.gle/S8t84kVA5mLfP6jUA" target="_blank" class="cta-btn">
-      Request Early Access
-      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <p class="cta-note">Private beta · GPU-first teams only</p>
+    <div class="cta-area">
+      <a href="https://forms.gle/S8t84kVA5mLfP6jUA" target="_blank" class="cta-btn">
+        Request Early Access
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <p class="cta-note">GPU infra teams only</p>
+    </div>
   </div>
 </main>
+
+<div class="etymology">
+  <span class="ety-word">dry<span style="color:var(--accent)">light</span></span>
+  <span class="ety-pronunciation">/ˈdraɪˌlaɪt/</span>
+  <span class="ety-pos">n.</span>
+  <span class="ety-latin">[Latin <em>lumen siccum</em>]</span>
+  <span class="ety-def">pure insight, unclouded by noise or emotion.</span>
+</div>
 
 <footer>
   <span>© 2026 <span style="font-family:'Outfit',sans-serif;font-weight:600;font-size:0.82rem;letter-spacing:-0.04em;text-transform:lowercase;color:var(--white);">dry<span style="color:var(--accent)">light</span> a<span style="color:var(--accent)">i</span></span>, Inc.</span>
