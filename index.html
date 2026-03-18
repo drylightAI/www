@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>drylight ai — Observability, evolved for the GPU era</title>
+<title>drylight ai — Actionable Intelligence for the AI era</title>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -30,10 +30,11 @@
     background: var(--bg);
     color: var(--white);
     -webkit-font-smoothing: antialiased;
-    min-height: 100vh;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
   }
 
   body::before {
@@ -71,12 +72,12 @@
     justify-content: center;
     position: relative;
     z-index: 1;
-    padding: 3rem 2rem;
+    padding: 2vh 2rem;
     text-align: center;
   }
 
   .logo-word {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5vh;
     opacity: 0;
     animation: up 0.6s 0.1s cubic-bezier(0.16,1,0.3,1) forwards;
     font-family: 'Outfit', sans-serif;
@@ -97,7 +98,7 @@
   }
 
   .etymology {
-    margin-bottom: 3rem;
+    margin-bottom: 3vh;
     opacity: 0;
     animation: up 0.6s 0.15s cubic-bezier(0.16,1,0.3,1) forwards;
     text-align: center;
@@ -147,18 +148,18 @@
     width: 48px;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    margin-bottom: 2.5rem;
+    margin-bottom: 3vh;
     opacity: 0;
     animation: up 0.6s 0.2s cubic-bezier(0.16,1,0.3,1) forwards;
   }
 
   .typer-wrap {
-    margin-bottom: 3rem;
+    margin-bottom: 3vh;
     opacity: 0;
     animation: up 0.6s 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
     width: 100%;
     max-width: 620px;
-    min-height: 3.5em;
+    min-height: 3em;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -204,7 +205,7 @@
     line-height: 1.3;
     max-width: 500px;
     letter-spacing: -0.02em;
-    margin-bottom: 3.5rem;
+    margin-bottom: 4vh;
     opacity: 0;
     animation: up 0.6s 0.4s cubic-bezier(0.16,1,0.3,1) forwards;
   }
@@ -255,7 +256,7 @@
     position: relative;
     z-index: 1;
     border-top: 1px solid var(--border);
-    padding: 1.5rem 2rem;
+    padding: 1vh 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -276,7 +277,27 @@
   @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 
   @media (max-width: 640px) {
-    main { padding: 2.5rem 1.5rem; }
+    main { padding: 1.5vh 1.5rem; }
+    .logo-word { font-size: clamp(2rem, 10vw, 3rem); }
+    .etymology { line-height: 1.8; margin-bottom: 2vh; }
+    .ety-word { font-size: 0.85rem; }
+    .ety-pronunciation, .ety-pos { font-size: 0.62rem; }
+    .ety-def { font-size: 0.7rem; }
+    .ety-latin { font-size: 0.58rem; }
+    .rule { margin-bottom: 2vh; }
+    .typer-wrap { margin-bottom: 2vh; min-height: 4em; }
+    .tagline { font-size: clamp(1.1rem, 5vw, 1.4rem); margin-bottom: 3vh; }
+    .cta-area { gap: 0.6rem; }
+    .cta-btn { padding: 0.6rem 1.4rem; font-size: 0.65rem; }
+  }
+
+  @media (max-height: 700px) {
+    .logo-word { font-size: clamp(2rem, 6vw, 3rem); margin-bottom: 1vh; }
+    .etymology { margin-bottom: 1.5vh; line-height: 1.7; }
+    .rule { margin-bottom: 1.5vh; }
+    .typer-wrap { margin-bottom: 1.5vh; min-height: 2.5em; }
+    .tagline { margin-bottom: 2vh; }
+    .cta-area { gap: 0.5rem; }
   }
 </style>
 </head>
@@ -304,7 +325,7 @@
     </div>
   </div>
 
-  <p class="tagline">Observability, evolved<br><em>for the GPU era.</em></p>
+  <p class="tagline">Actionable Intelligence<br>for the AI era.</p>
 
   <div class="cta-area">
     <a href="https://forms.gle/S8t84kVA5mLfP6jUA" target="_blank" class="cta-btn">
