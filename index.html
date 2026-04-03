@@ -7,28 +7,31 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #07090e;
-    --surface: #0c0f16;
-    --border: #151a24;
-    --border-light: #1e2533;
-    --accent: #38bdf8;
-    --accent-hover: #7dd3fc;
-    --white: #f1f5f9;
-    --grey-100: #cbd5e1;
-    --grey-300: #94a3b8;
-    --grey-500: #64748b;
-    --grey-700: #334155;
+    --bg: #1c1c1e;
+    --accent: #0a84ff;
+    --accent-hover: #409cff;
+    --accent-dim: rgba(10,132,255,0.10);
+    --glass-bg: rgba(44,44,46,0.52);
+    --glass-border: rgba(255,255,255,0.08);
+    --glass-shadow: 0 0 0 0.5px rgba(255,255,255,0.05) inset, 0 2px 8px rgba(0,0,0,0.2);
+    --text-primary: rgba(255,255,255,0.92);
+    --text-secondary: rgba(255,255,255,0.65);
+    --text-muted: rgba(255,255,255,0.42);
+    --text-subtle: rgba(255,255,255,0.24);
+    --mesh-1: rgba(10,132,255,0.08);
+    --mesh-2: rgba(48,209,88,0.04);
+    --mesh-3: rgba(191,90,242,0.04);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     background: var(--bg);
-    color: var(--white);
+    color: var(--text-primary);
     -webkit-font-smoothing: antialiased;
     height: 100vh;
     max-height: 100vh;
@@ -43,25 +46,10 @@
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    background-image:
-      linear-gradient(rgba(56,189,248,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(56,189,248,0.03) 1px, transparent 1px);
-    background-size: 64px 64px;
-    mask-image: radial-gradient(ellipse 55% 45% at 50% 40%, black 10%, transparent 70%);
-    -webkit-mask-image: radial-gradient(ellipse 55% 45% at 50% 40%, black 10%, transparent 70%);
-  }
-
-  body::after {
-    content: '';
-    position: fixed;
-    top: -250px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 700px;
-    height: 350px;
-    background: radial-gradient(ellipse, rgba(56,189,248,0.06) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
+    background:
+      radial-gradient(ellipse 600px 400px at 20% 10%, var(--mesh-1) 0%, transparent 60%),
+      radial-gradient(ellipse 500px 350px at 80% 20%, var(--mesh-2) 0%, transparent 60%),
+      radial-gradient(ellipse 400px 300px at 50% 80%, var(--mesh-3) 0%, transparent 60%);
   }
 
   main {
@@ -86,21 +74,16 @@
   .logo-word {
     margin-bottom: 4vh;
     opacity: 0;
-    animation: up 0.6s 0.1s cubic-bezier(0.16,1,0.3,1) forwards;
-    font-family: 'Outfit', sans-serif;
+    animation: up 0.3s 0.1s cubic-bezier(0.2,0.8,0.2,1) forwards;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: clamp(2.8rem, 8vw, 4.5rem);
     font-weight: 600;
     letter-spacing: -0.04em;
     line-height: 0.9;
     text-transform: lowercase;
+    color: var(--text-primary);
   }
   .logo-word .light {
-    color: var(--accent);
-  }
-  .logo-word .ai {
-    margin-left: 0.12em;
-  }
-  .logo-word .ai-i {
     color: var(--accent);
   }
 
@@ -108,48 +91,51 @@
     margin-bottom: 0;
     padding: 1vh 2rem;
     opacity: 0;
-    animation: up 0.6s 0.7s cubic-bezier(0.16,1,0.3,1) forwards;
+    animation: up 0.3s 0.55s cubic-bezier(0.2,0.8,0.2,1) forwards;
     text-align: center;
     line-height: 2;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
   .ety-word {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--white);
+    color: var(--text-primary);
     letter-spacing: -0.04em;
   }
   .ety-pronunciation {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: var(--grey-300);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: var(--text-muted);
     margin-left: 6px;
   }
   .ety-pos {
-    font-size: 0.9rem;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.82rem;
     font-style: italic;
-    font-weight: 400;
-    color: var(--grey-300);
+    font-weight: 300;
+    color: var(--text-muted);
     margin-left: 6px;
   }
   .ety-def {
     display: block;
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: var(--grey-100);
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--text-secondary);
     margin-top: 0;
     letter-spacing: 0.01em;
   }
   .ety-latin {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: var(--grey-500);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--text-muted);
     margin-left: 6px;
   }
   .ety-latin em {
     font-style: italic;
-    color: var(--grey-300);
+    color: var(--text-secondary);
   }
 
   .rule {
@@ -158,13 +144,13 @@
     background: linear-gradient(90deg, transparent, var(--accent), transparent);
     margin-bottom: 2vh;
     opacity: 0;
-    animation: up 0.6s 0.15s cubic-bezier(0.16,1,0.3,1) forwards;
+    animation: up 0.3s 0.15s cubic-bezier(0.2,0.8,0.2,1) forwards;
   }
 
   .typer-wrap {
     margin-bottom: 1.5vh;
     opacity: 0;
-    animation: up 0.6s 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
+    animation: up 0.3s 0.25s cubic-bezier(0.2,0.8,0.2,1) forwards;
     width: 100%;
     max-width: 620px;
     height: 3em;
@@ -180,37 +166,34 @@
     text-align: left;
   }
   .terminal-prompt {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Fira Code', monospace;
     font-size: clamp(0.7rem, 1vw, 0.78rem);
-    color: var(--grey-500);
+    color: var(--text-muted);
     margin-right: 8px;
     flex-shrink: 0;
     user-select: none;
     line-height: 1.6;
   }
   .typer {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Fira Code', monospace;
     font-size: clamp(0.7rem, 1vw, 0.78rem);
     font-weight: 400;
     color: var(--accent);
     line-height: 1.6;
   }
   .typer-text { word-break: break-word; }
-  .typer-cursor {
-    display: none;
-  }
-  @keyframes blink { 0%,100% { opacity: 0.7; } 50% { opacity: 0; } }
+  .typer-cursor { display: none; }
 
   .tagline {
     font-weight: 500;
     font-size: clamp(1.4rem, 2.8vw, 2rem);
-    color: var(--white);
+    color: var(--text-primary);
     line-height: 1.3;
     max-width: 500px;
     letter-spacing: -0.02em;
     margin-bottom: 8vh;
     opacity: 0;
-    animation: up 0.6s 0.2s cubic-bezier(0.16,1,0.3,1) forwards;
+    animation: up 0.3s 0.2s cubic-bezier(0.2,0.8,0.2,1) forwards;
   }
   .tagline em {
     font-style: italic;
@@ -220,7 +203,7 @@
 
   .cta-area {
     opacity: 0;
-    animation: up 0.6s 0.4s cubic-bezier(0.16,1,0.3,1) forwards;
+    animation: up 0.3s 0.35s cubic-bezier(0.2,0.8,0.2,1) forwards;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -230,27 +213,28 @@
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 0.72rem;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.02em;
     text-transform: uppercase;
-    color: var(--bg);
+    color: #fff;
     background: var(--accent);
     border: none;
     padding: 0.7rem 1.8rem;
     cursor: pointer;
     transition: all 0.2s ease;
     text-decoration: none;
-    border-radius: 3px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(10,132,255,0.3);
   }
-  .cta-btn:hover { background: var(--accent-hover); box-shadow: 0 0 24px rgba(56,189,248,0.2); }
+  .cta-btn:hover { background: var(--accent-hover); box-shadow: 0 4px 20px rgba(10,132,255,0.45); }
   .cta-btn svg { transition: transform 0.2s ease; }
   .cta-btn:hover svg { transform: translateX(3px); }
   .cta-note {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Fira Code', monospace;
     font-size: 0.54rem;
-    color: var(--grey-700);
+    color: var(--text-muted);
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
@@ -258,24 +242,24 @@
   footer {
     position: relative;
     z-index: 1;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgba(255,255,255,0.06);
     padding: 1vh 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Fira Code', monospace;
     font-size: 0.52rem;
-    color: var(--grey-700);
+    color: var(--text-muted);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     opacity: 0;
-    animation: fade 0.6s 1s ease forwards;
+    animation: fade 0.3s 0.8s ease forwards;
   }
-  footer a { color: var(--grey-700); text-decoration: none; }
+  footer a { color: var(--text-muted); text-decoration: none; }
 
   @keyframes up {
-    from { opacity: 0; transform: translateY(14px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(8px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
   }
   @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 
@@ -342,7 +326,7 @@
 </div>
 
 <footer>
-  <span>© 2026 <span style="font-family:'Outfit',sans-serif;font-weight:600;font-size:0.82rem;letter-spacing:-0.04em;text-transform:lowercase;color:var(--white);">dry<span style="color:var(--accent)">light</span> a<span style="color:var(--accent)">i</span></span>, Inc.</span>
+  <span>© 2026 <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:0.82rem;letter-spacing:-0.03em;text-transform:lowercase;color:var(--text-primary);">dry<span style="color:var(--accent)">light</span> <span style="color:var(--text-subtle);font-weight:300;">ai</span></span>, Inc.</span>
 </footer>
 
 <script>
